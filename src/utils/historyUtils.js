@@ -7,14 +7,18 @@ import axios from 'axios'
 
 /**
  * Get coordinates for a city using Open-Meteo Geocoding API (FREE)
- * @param {string} cityName - Name of the city
+ * @param {string} cityName - Name of the city (can be full location string)
  * @returns {Promise<{lat: number, lon: number}>} - Latitude and longitude
  */
 export const getCoordinates = async (cityName) => {
   try {
+    // Extract just the city name if it's a full location string
+    // e.g., "Kanpur, Kanpur Nagar, Uttar Pradesh, India" -> "Kanpur"
+    const simpleCityName = cityName.split(',')[0].trim()
+    
     const response = await axios.get('https://geocoding-api.open-meteo.com/v1/search', {
       params: {
-        name: cityName,
+        name: simpleCityName,
         count: 1,
         language: 'en',
         format: 'json'

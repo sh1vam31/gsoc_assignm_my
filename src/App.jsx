@@ -6,6 +6,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { AuthProvider } from './contexts/AuthContext'
+import { CityProvider } from './contexts/CityContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
@@ -22,14 +23,15 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <Router>
-          <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 
-                          dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-200">
-            {/* Header with Theme Toggle */}
-            <Header />
-            
-            {/* Navigation Bar */}
-            <Navigation />
+        <CityProvider>
+          <Router>
+            <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 
+                            dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-200">
+              {/* Header with Theme Toggle */}
+              <Header />
+              
+              {/* Navigation Bar */}
+              <Navigation />
             
             {/* Page Routes */}
             <Routes>
@@ -56,10 +58,11 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
             
-            {/* Footer */}
-            <Footer />
-          </div>
-        </Router>
+              {/* Footer */}
+              <Footer />
+            </div>
+          </Router>
+        </CityProvider>
       </AuthProvider>
     </ThemeProvider>
   )

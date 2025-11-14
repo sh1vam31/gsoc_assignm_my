@@ -11,11 +11,12 @@ import ChartsGrid from '../components/ChartsGrid'
 import RainfallAlert from '../components/RainfallAlert'
 import { useAutoRefresh } from '../hooks/useAutoRefresh'
 import { useDashboardData } from '../hooks/useDashboardData'
+import { useCity } from '../contexts/CityContext'
 import { useGeolocationRainfallAlert } from '../hooks/useGeolocationRainfallAlert'
 import { CITIES } from '../utils/constants'
 
 function Dashboard() {
-  const [selectedCity, setSelectedCity] = useState(CITIES[0].value)
+  const { selectedCity, setSelectedCity } = useCity()
   const [autoRefreshEnabled, setAutoRefreshEnabled] = useState(false)
   const [showRainfallAlert, setShowRainfallAlert] = useState(true)
   

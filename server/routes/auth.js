@@ -9,10 +9,21 @@ import User from '../models/User.js'
 const router = express.Router()
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production'
 
+// Allowed email domains
+const ALLOWED_DOMAINS = ['gmail.com', 'yahoo.com', 'outlook.com', 'live.com', 'hotmail.com', 'icloud.com']
+
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body
+
+    // Validate email domain
+    const emailDomain = email.split('@')[1]?.toLowerCase()
+    if (!emailDomain || !ALLOWED_DOMAINS.includes(emailDomain)) {
+      return res.status(400).json({ 
+        message: `Only emails from ${ALLOWED_DOMAINS.join(', ')} are allowed` 
+      })
+    }
 
     // Check if user already exists
     const existingUser = await User.findOne({ email })
