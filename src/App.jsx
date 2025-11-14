@@ -8,9 +8,9 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import HistoricalData from './pages/HistoricalData'
-import About from './pages/About'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -27,9 +27,9 @@ function App() {
           
           {/* Page Routes */}
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/historical" element={<HistoricalData />} />
-            <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           

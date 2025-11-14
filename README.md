@@ -4,7 +4,9 @@ A modern, real-time dashboard for monitoring smart city metrics including weathe
 
 ## Features
 
+- **Beautiful Home Page** - Engaging landing page with feature showcase
 - **Multi-page Application** - Clean navigation with React Router
+- **Enhanced Search** - Beautiful search interface with auto-suggestions
 - **Real-time Weather Data** - Current temperature, humidity, wind speed, and conditions
 - **Air Quality Monitoring** - Live AQI readings and pollutant levels
 - **Historical Data Analysis** - 24-hour and 7-day trends for temperature, wind, and AQI

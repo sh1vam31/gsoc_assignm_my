@@ -8,9 +8,9 @@ function Navigation() {
   const location = useLocation()
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: '📊' },
-    { path: '/historical', label: 'Historical Data', icon: '📈' },
-    { path: '/about', label: 'About', icon: 'ℹ️' }
+    { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/dashboard', label: 'Dashboard', icon: '📊' },
+    { path: '/historical', label: 'Historical Data', icon: '📈' }
   ]
 
   const isActive = (path) => {
