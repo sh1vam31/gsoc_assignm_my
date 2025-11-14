@@ -30,6 +30,7 @@ A modern, real-time dashboard for monitoring smart city metrics including weathe
 - **OpenWeatherMap API** - Current weather data
 - **Open-Meteo API** - Historical weather data (no API key required)
 - **Open-Meteo Air Quality API** - Air quality and historical AQI data (no API key required)
+- **NewsData.io API** - Latest news articles and updates
 
 ## Getting Started
 
@@ -53,7 +54,12 @@ npm install
 3. Create a `.env` file in the root directory
 ```env
 VITE_OPENWEATHER_API_KEY=your_api_key_here
+VITE_NEWSDATA_API_KEY=your_newsdata_api_key_here
 ```
+
+**Get your API keys:**
+- OpenWeatherMap: https://openweathermap.org/api
+- NewsData.io: https://newsdata.io/
 
 4. Start the development server
 ```bash
