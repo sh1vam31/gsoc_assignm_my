@@ -3,7 +3,8 @@
  * Orchestrates the entire Smart City Dashboard
  */
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import CitySelector from './components/CitySelector'
 import StatusMessage from './components/StatusMessage'
@@ -48,49 +49,52 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <Header />
-      
-      {/* City Selector */}
-      <CitySelector
-        selectedCity={selectedCity}
-        onCityChange={handleCityChange}
-        onRefresh={handleRefresh}
-        autoRefreshEnabled={autoRefreshEnabled}
-        onAutoRefreshToggle={handleAutoRefreshToggle}
-        loading={loading}
-      />
-      
-      {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
-        {/* Status Message */}
-        <StatusMessage 
-          error={error} 
-          loading={loading}
-          lastUpdated={lastUpdated}
-        />
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 
+                      dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-200">
+        {/* Header */}
+        <Header />
         
-        {/* Metrics Cards Grid */}
-        <MetricsGrid
-          weatherData={weatherData}
-          airQualityData={airQualityData}
-          lastUpdated={lastUpdated}
+        {/* City Selector */}
+        <CitySelector
+          selectedCity={selectedCity}
+          onCityChange={handleCityChange}
+          onRefresh={handleRefresh}
+          autoRefreshEnabled={autoRefreshEnabled}
+          onAutoRefreshToggle={handleAutoRefreshToggle}
           loading={loading}
         />
         
-        {/* Charts Grid */}
-        <ChartsGrid
-          weatherData={weatherData}
-          airQualityData={airQualityData}
-          forecastData={forecastData}
-          loading={loading}
-        />
-      </main>
-      
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Main Content */}
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
+          {/* Status Message */}
+          <StatusMessage 
+            error={error} 
+            loading={loading}
+            lastUpdated={lastUpdated}
+          />
+          
+          {/* Metrics Cards Grid */}
+          <MetricsGrid
+            weatherData={weatherData}
+            airQualityData={airQualityData}
+            lastUpdated={lastUpdated}
+            loading={loading}
+          />
+          
+          {/* Charts Grid */}
+          <ChartsGrid
+            weatherData={weatherData}
+            airQualityData={airQualityData}
+            forecastData={forecastData}
+            loading={loading}
+          />
+        </main>
+        
+        {/* Footer */}
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 

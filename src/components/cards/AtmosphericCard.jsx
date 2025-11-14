@@ -15,10 +15,10 @@ const AtmosphericCard = ({ data, loading }) => {
         gradient="from-purple-500 to-pink-500"
       >
         <div className="animate-pulse space-y-2">
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
         </div>
       </Card>
     )

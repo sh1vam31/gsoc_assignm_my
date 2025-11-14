@@ -15,11 +15,11 @@ const WeatherCard = ({ data, loading }) => {
         gradient="from-blue-500 to-cyan-500"
       >
         <div className="animate-pulse">
-          <div className="h-16 bg-gray-200 rounded mb-4"></div>
+          <div className="h-16 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
           <div className="space-y-2">
-            <div className="h-4 bg-gray-200 rounded"></div>
-            <div className="h-4 bg-gray-200 rounded"></div>
-            <div className="h-4 bg-gray-200 rounded"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
           </div>
         </div>
       </Card>
@@ -33,7 +33,7 @@ const WeatherCard = ({ data, loading }) => {
       gradient="from-blue-500 to-cyan-500"
     >
       <div className="text-center mb-4">
-        <div className="text-5xl font-bold text-blue-600">
+        <div className="text-5xl font-bold text-blue-600 dark:text-blue-400">
           {data.temperature}°C
         </div>
       </div>

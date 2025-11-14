@@ -11,11 +11,17 @@ import {
   Legend
 } from 'chart.js'
 import ChartCard from '../ui/ChartCard'
+import { useTheme } from '../../contexts/ThemeContext'
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 const WeatherPieChart = ({ data, loading }) => {
+  const { theme } = useTheme()
+  const isDark = theme === 'dark'
+  
+  // Colors for light/dark mode
+  const textColor = isDark ? '#e5e7eb' : '#374151'
   if (loading || !data) {
     return (
       <ChartCard 
@@ -23,7 +29,7 @@ const WeatherPieChart = ({ data, loading }) => {
         icon="fa-chart-pie"
       >
         <div className="h-64 flex items-center justify-center">
-          <div className="text-gray-400">
+          <div className="text-gray-400 dark:text-gray-500">
             {loading ? 'Loading chart...' : 'No data available'}
           </div>
         </div>
@@ -60,9 +66,17 @@ const WeatherPieChart = ({ data, loading }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom'
+        position: 'bottom',
+        labels: {
+          color: textColor
+        }
       },
       tooltip: {
+        backgroundColor: isDark ? 'rgba(17, 24, 39, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+        titleColor: textColor,
+        bodyColor: textColor,
+        borderColor: isDark ? '#4b5563' : '#e5e7eb',
+        borderWidth: 1,
         callbacks: {
           label: function(context) {
             return `${context.label}: ${context.parsed}%`

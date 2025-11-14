@@ -11,9 +11,9 @@ const StatusMessage = ({ error, loading, lastUpdated }) => {
       return {
         type: 'error',
         icon: 'fa-exclamation-circle',
-        bgColor: 'bg-red-50',
-        borderColor: 'border-red-500',
-        textColor: 'text-red-800',
+        bgColor: 'bg-red-50 dark:bg-red-900/20',
+        borderColor: 'border-red-500 dark:border-red-400',
+        textColor: 'text-red-800 dark:text-red-300',
         message: error
       }
     }
@@ -22,9 +22,9 @@ const StatusMessage = ({ error, loading, lastUpdated }) => {
       return {
         type: 'info',
         icon: 'fa-spinner fa-spin',
-        bgColor: 'bg-blue-50',
-        borderColor: 'border-blue-500',
-        textColor: 'text-blue-800',
+        bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+        borderColor: 'border-blue-500 dark:border-blue-400',
+        textColor: 'text-blue-800 dark:text-blue-300',
         message: 'Loading dashboard data...'
       }
     }
@@ -32,9 +32,9 @@ const StatusMessage = ({ error, loading, lastUpdated }) => {
     return {
       type: 'success',
       icon: 'fa-check-circle',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-500',
-      textColor: 'text-green-800',
+      bgColor: 'bg-green-50 dark:bg-green-900/20',
+      borderColor: 'border-green-500 dark:border-green-400',
+      textColor: 'text-green-800 dark:text-green-300',
       message: 'Data updated successfully!'
     }
   }

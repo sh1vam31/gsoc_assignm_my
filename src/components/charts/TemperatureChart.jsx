@@ -16,6 +16,7 @@ import {
   Filler
 } from 'chart.js'
 import ChartCard from '../ui/ChartCard'
+import { useTheme } from '../../contexts/ThemeContext'
 
 // Register Chart.js components
 ChartJS.register(
@@ -30,6 +31,12 @@ ChartJS.register(
 )
 
 const TemperatureChart = ({ data, loading }) => {
+  const { theme } = useTheme()
+  const isDark = theme === 'dark'
+  
+  // Colors for light/dark mode
+  const textColor = isDark ? '#e5e7eb' : '#374151'
+  const gridColor = isDark ? '#374151' : '#e5e7eb'
   if (loading || !data || data.length === 0) {
     return (
       <ChartCard 
@@ -37,7 +44,7 @@ const TemperatureChart = ({ data, loading }) => {
         icon="fa-chart-line"
       >
         <div className="h-64 flex items-center justify-center">
-          <div className="text-gray-400">
+          <div className="text-gray-400 dark:text-gray-500">
             {loading ? 'Loading chart...' : 'No data available'}
           </div>
         </div>
@@ -70,11 +77,19 @@ const TemperatureChart = ({ data, loading }) => {
     plugins: {
       legend: {
         display: true,
-        position: 'top'
+        position: 'top',
+        labels: {
+          color: textColor
+        }
       },
       tooltip: {
         mode: 'index',
         intersect: false,
+        backgroundColor: isDark ? 'rgba(17, 24, 39, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+        titleColor: textColor,
+        bodyColor: textColor,
+        borderColor: isDark ? '#4b5563' : '#e5e7eb',
+        borderWidth: 1,
         callbacks: {
           label: function(context) {
             return `Temperature: ${context.parsed.y}°C`
@@ -83,12 +98,24 @@ const TemperatureChart = ({ data, loading }) => {
       }
     },
     scales: {
+      x: {
+        ticks: {
+          color: textColor
+        },
+        grid: {
+          color: gridColor
+        }
+      },
       y: {
         beginAtZero: false,
         ticks: {
+          color: textColor,
           callback: function(value) {
             return value + '°C'
           }
+        },
+        grid: {
+          color: gridColor
         }
       }
     }
