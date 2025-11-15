@@ -7,6 +7,8 @@ A modern, full-stack web application for monitoring real-time environmental data
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
 ![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC)
 
+# Live_Demo = https://gsoc-assignm.vercel.app/
+
 ## ✨ Features
 
 ### 🔐 Authentication System
