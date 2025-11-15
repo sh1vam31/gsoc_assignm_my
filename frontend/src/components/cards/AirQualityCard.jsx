@@ -1,7 +1,4 @@
-/**
- * Air Quality Card Component
- * Displays air quality index and pollutant levels
- */
+
 
 import Card from '../ui/Card'
 import MetricRow from '../ui/MetricRow'

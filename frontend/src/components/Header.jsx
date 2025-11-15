@@ -1,7 +1,4 @@
-/**
- * Header Component
- * Displays the dashboard title and subtitle
- */
+
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'

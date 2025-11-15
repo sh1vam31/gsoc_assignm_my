@@ -1,7 +1,4 @@
-/**
- * Main App Component
- * Multi-page Smart City Dashboard with React Router
- */
+
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'

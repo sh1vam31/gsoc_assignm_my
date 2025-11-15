@@ -1,7 +1,3 @@
-/**
- * Reusable Metric Row Component
- * Displays a metric with icon, label, and value
- */
 
 const MetricRow = ({ icon, label, value }) => {
   return (

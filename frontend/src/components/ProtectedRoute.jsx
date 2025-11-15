@@ -1,7 +1,4 @@
-/**
- * Protected Route Component
- * Redirects to login if user is not authenticated
- */
+
 
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'

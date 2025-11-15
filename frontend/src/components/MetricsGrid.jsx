@@ -1,7 +1,4 @@
-/**
- * Metrics Grid Component
- * Displays all metric cards in a responsive grid
- */
+
 
 import WeatherCard from './cards/WeatherCard'
 import AirQualityCard from './cards/AirQualityCard'

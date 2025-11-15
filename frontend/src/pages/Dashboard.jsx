@@ -1,6 +1,4 @@
-/**
- * Dashboard Page - Main overview with current metrics
- */
+
 
 import { useState } from 'react'
 import { AlertTriangle } from 'lucide-react'
@@ -30,7 +28,7 @@ function Dashboard() {
     refreshData 
   } = useDashboardData(selectedCity)
   
-  // Rainfall alert monitoring using user's current location
+
   const { 
     rainfallAnalysis, 
     recheckRainfallAlert,
@@ -43,12 +41,12 @@ function Dashboard() {
 
   const handleCityChange = (city) => {
     setSelectedCity(city)
-    setShowRainfallAlert(true) // Show alert again when city changes
+    setShowRainfallAlert(true) 
   }
 
   const handleRefresh = () => {
     refreshData()
-    recheckRainfallAlert() // Also recheck rainfall alert
+    recheckRainfallAlert() 
   }
 
   const handleAutoRefreshToggle = (enabled) => {

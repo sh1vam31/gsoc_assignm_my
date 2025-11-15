@@ -1,29 +1,14 @@
-/**
- * Example Usage Component for Historical Data Panel
- * This demonstrates how to integrate the HistoricalDataPanel into your app
- * 
- * BEGINNER'S GUIDE:
- * ----------------
- * 1. Import the HistoricalDataPanel component
- * 2. Pass the cityName prop (e.g., "London", "New York", "Tokyo")
- * 3. The component handles everything else automatically:
- *    - Fetches data from free APIs
- *    - Displays loading states
- *    - Shows error messages if needed
- *    - Renders interactive charts
- */
+
 
 import { useState } from 'react'
 import HistoricalDataPanel from './HistoricalDataPanel'
 
-/**
- * Example component showing how to use HistoricalDataPanel
- */
+
 const HistoricalDataExample = () => {
-  // State to manage selected city
+
   const [selectedCity, setSelectedCity] = useState('London')
 
-  // List of example cities
+
   const cities = ['London', 'New York', 'Tokyo', 'Paris', 'Sydney', 'Mumbai']
 
   return (

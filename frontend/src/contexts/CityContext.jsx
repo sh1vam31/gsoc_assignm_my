@@ -1,6 +1,4 @@
-/**
- * City Context - Share selected city across pages
- */
+
 
 import { createContext, useContext, useState } from 'react'
 import { CITIES } from '../utils/constants'

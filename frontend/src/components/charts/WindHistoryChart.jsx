@@ -1,7 +1,4 @@
-/**
- * Wind Speed History Chart Component
- * Displays wind speed trends using Chart.js Line chart
- */
+
 
 import { Line } from 'react-chartjs-2'
 import {

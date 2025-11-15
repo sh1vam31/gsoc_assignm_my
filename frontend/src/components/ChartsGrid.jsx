@@ -1,7 +1,4 @@
-/**
- * Charts Grid Component
- * Displays all charts in a responsive grid
- */
+
 
 import TemperatureChart from './charts/TemperatureChart'
 import AirQualityChart from './charts/AirQualityChart'

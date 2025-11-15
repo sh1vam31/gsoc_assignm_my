@@ -1,7 +1,4 @@
-/**
- * AQI History Chart Component
- * Displays air quality index trends using Chart.js Line chart
- */
+
 
 import { Line } from 'react-chartjs-2'
 import {

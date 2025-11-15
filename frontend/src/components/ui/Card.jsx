@@ -1,7 +1,4 @@
-/**
- * Reusable Card Component
- * Base card with header and body
- */
+
 
 import Tooltip from './Tooltip'
 

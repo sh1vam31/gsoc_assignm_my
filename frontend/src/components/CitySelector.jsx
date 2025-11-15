@@ -1,7 +1,4 @@
-/**
- * City Selector Component
- * Allows users to search for any city/state and fetch data
- */
+
 
 import { useState, useRef, useEffect } from 'react'
 import { searchLocations, reverseGeocode } from '../services/apiService'
@@ -22,7 +19,6 @@ const CitySelector = ({
   const dropdownRef = useRef(null)
   const searchTimeoutRef = useRef(null)
 
-  // Search for location suggestions
   useEffect(() => {
     if (searchInput.trim().length < 2) {
       setSuggestions([])
@@ -30,7 +26,7 @@ const CitySelector = ({
       return
     }
 
-    // Debounce search
+
     if (searchTimeoutRef.current) {
       clearTimeout(searchTimeoutRef.current)
     }
@@ -56,7 +52,7 @@ const CitySelector = ({
     }
   }, [searchInput])
 
-  // Close dropdown when clicking outside
+ 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -85,7 +81,7 @@ const CitySelector = ({
     }
   }
 
-  // Detect user's current location
+
   const handleDetectLocation = async () => {
     if (!navigator.geolocation) {
       alert('Geolocation is not supported by your browser')
@@ -99,10 +95,10 @@ const CitySelector = ({
         try {
           const { latitude, longitude } = position.coords
           
-          // Convert coordinates to city name
+         
           const locationName = await reverseGeocode(latitude, longitude)
           
-          // Update selected city
+         
           onCityChange(locationName)
         } catch (error) {
           console.error('Error getting location name:', error)

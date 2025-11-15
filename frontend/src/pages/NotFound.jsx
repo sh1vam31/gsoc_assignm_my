@@ -1,6 +1,4 @@
-/**
- * 404 Not Found Page
- */
+
 
 import { Link } from 'react-router-dom'
 

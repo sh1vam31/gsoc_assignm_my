@@ -1,6 +1,4 @@
-/**
- * Navigation Component - Main navigation bar with routing
- */
+
 
 import { Link, useLocation } from 'react-router-dom'
 

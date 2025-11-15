@@ -1,7 +1,4 @@
-/**
- * Utility Toolbar Component
- * Provides quick access to refresh, theme toggle, and info
- */
+
 
 const UtilityToolbar = ({ onRefresh, loading }) => {
   return (

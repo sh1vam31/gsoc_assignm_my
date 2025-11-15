@@ -1,7 +1,4 @@
-/**
- * Status Card Component
- * Displays last update time and data source information
- */
+
 
 import Card from '../ui/Card'
 import { formatDateTime } from '../../utils/helpers'

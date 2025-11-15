@@ -1,7 +1,4 @@
-/**
- * Status Message Component
- * Displays loading, error, or success messages
- */
+
 
 const StatusMessage = ({ error, loading, lastUpdated }) => {
   if (!error && !loading && !lastUpdated) return null

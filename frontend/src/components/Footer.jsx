@@ -1,7 +1,3 @@
-/**
- * Footer Component
- * Displays footer information
- */
 
 const Footer = () => {
   return (

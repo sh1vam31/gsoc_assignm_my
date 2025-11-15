@@ -1,7 +1,4 @@
-/**
- * Weather Card Component
- * Displays current weather information
- */
+
 
 import Card from '../ui/Card'
 import MetricRow from '../ui/MetricRow'

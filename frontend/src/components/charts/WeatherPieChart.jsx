@@ -1,7 +1,4 @@
-/**
- * Weather Pie Chart Component
- * Displays weather metrics distribution using Doughnut chart
- */
+
 
 import { Doughnut } from 'react-chartjs-2'
 import {
@@ -13,14 +10,14 @@ import {
 import ChartCard from '../ui/ChartCard'
 import { useTheme } from '../../contexts/ThemeContext'
 
-// Register Chart.js components
+
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 const WeatherPieChart = ({ data, loading }) => {
   const { theme } = useTheme()
   const isDark = theme === 'dark'
   
-  // Colors for light/dark mode
+
   const textColor = isDark ? '#e5e7eb' : '#374151'
   if (loading || !data) {
     return (

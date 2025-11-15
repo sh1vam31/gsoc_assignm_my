@@ -1,7 +1,4 @@
-/**
- * Reusable Chart Card Component
- * Wrapper for chart components
- */
+
 
 const ChartCard = ({ title, icon, children }) => {
   return (

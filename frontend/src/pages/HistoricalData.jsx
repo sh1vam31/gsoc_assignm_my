@@ -1,6 +1,4 @@
-/**
- * Historical Data Page - View historical trends
- */
+
 
 import HistoricalDataPanel from '../components/history/HistoricalDataPanel'
 import { useCity } from '../contexts/CityContext'

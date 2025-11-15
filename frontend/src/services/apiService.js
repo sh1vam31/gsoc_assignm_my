@@ -1,13 +1,9 @@
-/**
- * API Service
- * Handles all API calls to OpenWeatherMap and AQICN
- * Includes error handling and fallback to mock data
- */
+
 
 import axios from 'axios'
 import { MOCK_DATA } from '../utils/mockData'
 
-// API Configuration
+
 const OPENWEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
 const AQICN_API_KEY = import.meta.env.VITE_AQICN_API_KEY
 const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5'
@@ -15,7 +11,7 @@ const AQICN_BASE_URL = 'https://api.waqi.info'
 const NOMINATIM_BASE_URL = 'https://nominatim.openstreetmap.org'
 const API_TIMEOUT = 10000
 
-// Cache for geocoding results to avoid repeated API calls
+
 const geocodeCache = new Map()
 
 /**
@@ -25,7 +21,7 @@ const geocodeCache = new Map()
  */
 export const geocodeLocation = async (location) => {
   try {
-    // Check cache first
+
     if (geocodeCache.has(location)) {
       return geocodeCache.get(location)
     }
@@ -35,7 +31,7 @@ export const geocodeLocation = async (location) => {
     const response = await axios.get(url, { 
       timeout: API_TIMEOUT,
       headers: {
-        'User-Agent': 'SmartCityDashboard/1.0' // Required by Nominatim
+        'User-Agent': 'SmartCityDashboard/1.0' 
       }
     })
     
@@ -51,13 +47,13 @@ export const geocodeLocation = async (location) => {
       display_name: data[0].display_name
     }
 
-    // Cache the result
+
     geocodeCache.set(location, result)
     
     return result
   } catch (error) {
     console.error('Error geocoding location:', error.message)
-    // Return default coordinates for London
+    
     return { lat: 51.5074, lon: -0.1278, display_name: location }
   }
 }
@@ -81,7 +77,7 @@ export const reverseGeocode = async (lat, lon) => {
     
     const data = response.data
     
-    // Return city name or display name
+
     return data.address?.city || 
            data.address?.town || 
            data.address?.village || 
@@ -171,7 +167,7 @@ export const fetchForecastData = async (city) => {
       return MOCK_DATA.forecast
     }
 
-    // Get coordinates using Nominatim (FREE)
+
     const coords = await geocodeLocation(city)
     
     const url = `${OPENWEATHER_BASE_URL}/forecast?lat=${coords.lat}&lon=${coords.lon}&appid=${OPENWEATHER_API_KEY}&units=metric`
@@ -179,7 +175,7 @@ export const fetchForecastData = async (city) => {
     const response = await axios.get(url, { timeout: API_TIMEOUT })
     const data = response.data
     
-    // Extract next 8 data points (24 hours, 3-hour intervals)
+
     return data.list.slice(0, 8).map(item => ({
       time: new Date(item.dt * 1000).toLocaleTimeString('en-US', { 
         hour: '2-digit', 
@@ -205,10 +201,10 @@ export const fetchAirQualityData = async (city) => {
       return MOCK_DATA.airQuality
     }
 
-    // Get coordinates using Nominatim (FREE)
+   
     const coords = await geocodeLocation(city)
     
-    // Use geo coordinates endpoint for more accurate results
+    
     const url = `${AQICN_BASE_URL}/feed/geo:${coords.lat};${coords.lon}/?token=${AQICN_API_KEY}`
     
     const response = await axios.get(url, { timeout: API_TIMEOUT })

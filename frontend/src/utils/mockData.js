@@ -1,7 +1,4 @@
-/**
- * Mock Data for Fallback
- * Used when API calls fail or API keys are not configured
- */
+
 
 export const MOCK_DATA = {
   weather: {

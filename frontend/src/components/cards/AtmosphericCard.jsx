@@ -1,7 +1,4 @@
-/**
- * Atmospheric Card Component
- * Displays atmospheric conditions like pressure, visibility, etc.
- */
+
 
 import Card from '../ui/Card'
 import MetricRow from '../ui/MetricRow'
@@ -25,7 +22,7 @@ const AtmosphericCard = ({ data, loading }) => {
     )
   }
 
-  // Generate random UV index for demo (you can integrate real UV API)
+
   const uvIndex = Math.floor(Math.random() * 10) + 1
 
   return (

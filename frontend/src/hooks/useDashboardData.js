@@ -1,7 +1,4 @@
-/**
- * Custom Hook: useDashboardData
- * Manages dashboard data fetching and state
- */
+
 
 import { useState, useEffect, useCallback } from 'react'
 import { fetchWeatherData, fetchForecastData, fetchAirQualityData } from '../services/apiService'
@@ -14,15 +11,13 @@ export const useDashboardData = (city) => {
   const [error, setError] = useState(null)
   const [lastUpdated, setLastUpdated] = useState(null)
 
-  /**
-   * Fetch all dashboard data
-   */
+
   const fetchData = useCallback(async () => {
     setLoading(true)
     setError(null)
 
     try {
-      // Fetch all data in parallel
+  
       const [weather, forecast, airQuality] = await Promise.all([
         fetchWeatherData(city),
         fetchForecastData(city),
@@ -42,14 +37,11 @@ export const useDashboardData = (city) => {
     }
   }, [city])
 
-  /**
-   * Refresh data manually
-   */
   const refreshData = useCallback(() => {
     fetchData()
   }, [fetchData])
 
-  // Fetch data when city changes
+ 
   useEffect(() => {
     fetchData()
   }, [fetchData])

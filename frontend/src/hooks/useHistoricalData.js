@@ -1,8 +1,4 @@
-/**
- * Custom hook for fetching historical data
- * Combines weather history (Open-Meteo) and AQI history (OpenAQ)
- * Returns data for both 24-hour and 7-day views
- */
+
 
 import { useState, useEffect } from 'react'
 import {

@@ -1,7 +1,3 @@
-/**
- * Tooltip Component
- * Shows a hover panel with description
- */
 
 import { useState } from 'react'
 

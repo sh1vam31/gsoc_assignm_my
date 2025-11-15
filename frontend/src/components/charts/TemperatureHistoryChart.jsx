@@ -1,7 +1,4 @@
-/**
- * Temperature History Chart Component
- * Displays temperature trends using Chart.js Line chart
- */
+
 
 import { Line } from 'react-chartjs-2'
 import {
@@ -16,7 +13,7 @@ import {
   Filler
 } from 'chart.js'
 
-// Register Chart.js components
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

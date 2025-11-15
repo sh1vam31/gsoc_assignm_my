@@ -1,7 +1,4 @@
-/**
- * Temperature Chart Component
- * Displays temperature trend using Line chart
- */
+
 
 import { Line } from 'react-chartjs-2'
 import {
@@ -18,7 +15,7 @@ import {
 import ChartCard from '../ui/ChartCard'
 import { useTheme } from '../../contexts/ThemeContext'
 
-// Register Chart.js components
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -34,7 +31,7 @@ const TemperatureChart = ({ data, loading }) => {
   const { theme } = useTheme()
   const isDark = theme === 'dark'
   
-  // Colors for light/dark mode
+
   const textColor = isDark ? '#e5e7eb' : '#374151'
   const gridColor = isDark ? '#374151' : '#e5e7eb'
   if (loading || !data || data.length === 0) {

@@ -1,6 +1,4 @@
-/**
- * Utility Helper Functions
- */
+
 
 /**
  * Format date and time

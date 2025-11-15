@@ -1,7 +1,4 @@
-/**
- * Theme Toggle Component
- * Button to switch between dark and light themes
- */
+
 
 import { useTheme } from '../contexts/ThemeContext'
 

@@ -1,6 +1,4 @@
-/**
- * Application Constants
- */
+
 
 export const CITIES = [
   { value: 'London', label: 'London' },

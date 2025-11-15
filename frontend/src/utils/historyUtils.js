@@ -1,7 +1,3 @@
-/**
- * Utility functions for fetching and processing historical data
- * Uses FREE APIs: Open-Meteo (weather) and OpenAQ (air quality)
- */
 
 import axios from 'axios'
 
@@ -164,7 +160,7 @@ export const formatWeatherResponse = (weatherData) => {
     return date.getHours() + ':00'
   })
 
-  // Last 7 days (aggregate by day - take average of each day)
+  
   const dailyData = {}
   
   time.forEach((timestamp, index) => {
@@ -181,7 +177,7 @@ export const formatWeatherResponse = (weatherData) => {
     dailyData[date].winds.push(windspeed_10m[index])
   })
 
-  // Calculate daily averages
+ 
   const dates = Object.keys(dailyData).sort()
   const temp7dData = dates.map(date => {
     const temps = dailyData[date].temps.filter(t => t !== null)
@@ -197,7 +193,7 @@ export const formatWeatherResponse = (weatherData) => {
       : null
   })
 
-  // Format labels for 7d (show date)
+
   const labels7d = dates.map(date => {
     const d = new Date(date)
     return `${d.getMonth() + 1}/${d.getDate()}`
@@ -226,7 +222,7 @@ export const formatAqiResponse = (aqiData) => {
 
   const { time, pm2_5, european_aqi } = aqiData.hourly
   
-  // Use PM2.5 if available, otherwise use European AQI
+
   const aqiValues = pm2_5 || european_aqi
 
   if (!aqiValues || aqiValues.length === 0) {
@@ -236,17 +232,17 @@ export const formatAqiResponse = (aqiData) => {
     }
   }
 
-  // Last 24 hours (last 24 data points)
+
   const last24Hours = time.slice(-24)
   const aqi24hData = aqiValues.slice(-24)
 
-  // Format labels for 24h (show hour only)
+ 
   const labels24h = last24Hours.map(t => {
     const date = new Date(t)
     return date.getHours() + ':00'
   })
 
-  // Last 7 days (aggregate by day - take average of each day)
+  
   const dailyData = {}
   
   time.forEach((timestamp, index) => {
@@ -261,7 +257,7 @@ export const formatAqiResponse = (aqiData) => {
     }
   })
 
-  // Calculate daily averages
+
   const dates = Object.keys(dailyData).sort()
   const aqi7dData = dates.map(date => {
     const values = dailyData[date].filter(v => v !== null)
@@ -270,7 +266,7 @@ export const formatAqiResponse = (aqiData) => {
       : null
   })
 
-  // Format labels for 7d (show date)
+  
   const labels7d = dates.map(date => {
     const d = new Date(date)
     return `${d.getMonth() + 1}/${d.getDate()}`

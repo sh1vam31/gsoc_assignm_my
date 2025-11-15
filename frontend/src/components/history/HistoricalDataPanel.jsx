@@ -1,7 +1,4 @@
-/**
- * Historical Data Panel Component
- * Main UI panel that displays all historical charts with toggle controls
- */
+
 
 import { useState } from 'react'
 import { useHistoricalData } from '../../hooks/useHistoricalData'
@@ -30,7 +27,7 @@ const HistoricalDataPanel = ({ cityName }) => {
     error
   } = useHistoricalData(cityName)
 
-  // Determine which data to display based on selected time range
+
   const tempData = timeRange === '24h' ? temp24h : temp7d
   const windData = timeRange === '24h' ? wind24h : wind7d
   const aqiData = timeRange === '24h' ? aqi24h : aqi7d
