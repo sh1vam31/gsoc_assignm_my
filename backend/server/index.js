@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5002
 
 // CORS Configuration - Allow requests from frontend
 app.use(cors({
-  origin: ['http://localhost:3000','http://localhost:3001', 'http://localhost:3002' , 'http://localhost:3004', 'http://localhost:5173', 'http://localhost:5174', 'https://gsoc-assignm.vercel.app/'],
+  origin: ['http://localhost:3000','http://localhost:3001', 'http://localhost:3002' , 'http://localhost:3004', 'http://localhost:5173', 'http://localhost:5174', 'https://gsoc-assignm.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
